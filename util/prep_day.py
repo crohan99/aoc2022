@@ -56,6 +56,7 @@ def main():
     inputFile = os.path.join(dayDir, r'd%si.txt'%(day))
     part1File = os.path.join(dayDir, r'd%sp1.py'%(day))
     part2File = os.path.join(dayDir, r'd%sp2.py'%(day))
+    driverFile = os.path.join(dayDir, 'main.py')
 
     if (not os.path.exists(dayDir)):
         os.mkdir(dayDir)
@@ -70,6 +71,10 @@ def main():
 
     if (not os.path.exists(part2File)):
         with open(part2File, 'w') as p2:
+            p2.write(DAY_TEMPLATE)
+
+    if (not os.path.exists(driverFile)):
+        with open(driverFile, 'w') as p2:
             p2.write(DAY_TEMPLATE)
 
 
