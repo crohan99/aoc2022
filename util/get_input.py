@@ -2,7 +2,6 @@ import sys
 import requests
 import os
 
-
 STATUS_OK = 200
 INPUT_SIZE = 2
 AOC_INPUT_URL = 'https://adventofcode.com/2022/day/1/input'
