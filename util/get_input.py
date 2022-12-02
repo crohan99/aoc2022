@@ -8,8 +8,8 @@ INPUT_SIZE = 2
 AOC_INPUT_URL = 'https://adventofcode.com/2022/day/1/input'
 URL = 'https://adventofcode.com/2022'
 COOKIES = {
-    'ru': '53616c7465645f5f2c67d612a845a9fcdc07298538ebd2682ed70370db6628b9339c2b44f0ac9f6ddda8c328c019e2a7',
-    'session': '53616c7465645f5f69d41fe9274fd72a959d820cfa3e493c8ef3c18bd66f1ae6ad3df03cfd93e092ad1fe67c8373dfb3db8581600c17d1b500253548f5e48418'
+    'ru': 'usrstring',
+    'session': 'sessioncookie'
 }
 
 def main():
