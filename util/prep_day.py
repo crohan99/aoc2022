@@ -17,7 +17,7 @@ COOKIES = {
 }
 
 INPUT_SIZE = 2
-DAY_TEMPLATE = '\n"""\nCarson Rohan\nAOC2022\nName_of_puzzle\n"""\n\ndef main():\n\treturn 0\n\nif __name__ == \'__main__\':\n\tmain()'
+DAY_TEMPLATE = '"""\nCarson Rohan\nAOC2022\nName_of_puzzle\n"""\n\ndef main():\n\treturn 0\n\nif __name__ == \'__main__\':\n\tmain()'
 
 def main():
 
