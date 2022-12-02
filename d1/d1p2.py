@@ -3,13 +3,26 @@ import os
 """
 Carson Rohan
 AOC2022
-Day 1 Part 1: Fat elves
+Day 1 Part 2: Top 3 fat elves
 """
 
 FILE_NAME = r'/d1i1.txt'
 
 def main():
 
+    elfPacks = day1()
+
+    # grab max of list, add to total, then pop it (x3)
+    top3: int = 0
+    for i in range(3):
+        top3 += max(elfPacks)
+        elfPacks.remove(max(elfPacks))
+
+    print(top3)
+
+    return 0
+
+def day1():
     # get input from input file
     with open(os.path.dirname(os.path.abspath(__file__)) + FILE_NAME, 'r') as input:
         snackList = input.readlines()
@@ -32,8 +45,7 @@ def main():
             elfPacks.append(calorieTotal)
             calorieTotal = 0
 
-    print(max(elfPacks))
-    return 0
+    return elfPacks
 
 if __name__ == "__main__":
     main()
