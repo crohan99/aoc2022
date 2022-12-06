@@ -17,7 +17,7 @@ COOKIES = {
 }
 
 INPUT_SIZE = 2
-DAY_TEMPLATE = '"""\nCarson Rohan\nAOC2022\nDay Part: Name_of_puzzle\n"""\n\nimport os\n\nFILE_NAME = \'d?i.txt\'\n\ndef main():\n\treturn 0\n\nclass Part1:\n\n\tdef blah():\n\t\treturn 0\n\nif __name__ == \'__main__\':\n\tmain()'
+DAY_TEMPLATE = '"""\nCarson Rohan\nAOC2022\nDay ?: Name_of_puzzle\n"""\n\nimport os\n\nFILE_NAME = \'d?i.txt\'\n\ndef main():\n\treturn 0\n\nclass Part1:\n\n\tdef blah():\n\t\treturn 0\n\nclass Part2:\n\n\tdef blah():\n\t\treturn 0\n\nif __name__ == \'__main__\':\n\tmain()'
 
 def main():
 
@@ -52,9 +52,10 @@ def main():
 
     # create dirs/files
     parentDir = os.path.dirname(os.path.abspath(__file__))
-    dayDir = os.path.join(parentDir, r'../d%s'%(day))
-    inputFile = os.path.join(dayDir, r'd%si.txt'%(day))
-    dayFile = os.path.join(dayDir, r'd%s.py'%(day))
+    dayDir = os.path.join(parentDir, '../d%s'%(day))
+    inputFile = os.path.join(dayDir, 'd%si.txt'%(day))
+    dayFile = os.path.join(dayDir, 'd%s.py'%(day))
+    template = DAY_TEMPLATE.replace('?', str(day))
 
     if (not os.path.exists(dayDir)):
         os.mkdir(dayDir)
@@ -65,7 +66,7 @@ def main():
 
     if (not os.path.exists(dayFile)):
         with open(dayFile, 'w') as p1:
-            p1.write(DAY_TEMPLATE)
+            p1.write(template)
 
     return 0
 
