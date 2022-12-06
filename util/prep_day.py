@@ -17,7 +17,7 @@ COOKIES = {
 }
 
 INPUT_SIZE = 2
-DAY_TEMPLATE = '"""\nCarson Rohan\nAOC2022\nDay ?: Name_of_puzzle\n"""\n\nimport os\n\nFILE_NAME = \'d?i.txt\'\n\ndef main():\n\treturn 0\n\nclass Part1:\n\n\tdef blah():\n\t\treturn 0\n\nclass Part2:\n\n\tdef blah():\n\t\treturn 0\n\nif __name__ == \'__main__\':\n\tmain()'
+DAY_TEMPLATE = '"""\nCarson Rohan\nAOC2022\nDay ?: Name_of_puzzle\n"""\n\nimport os\n\nFILE_NAME = \'d?i.txt\'\n\ndef main():\n\n\twith open(os.path.join(os.path.dirname(os.path.abspath(__file__)), FILE_NAME), \'r\') as input:\n\t\tfileInput = input.readlines()\n\t\treturn 0\n\nclass Part1:\n\n\tdef blah():\n\t\treturn 0\n\nclass Part2:\n\n\tdef blah():\n\t\treturn 0\n\nif __name__ == \'__main__\':\n\tmain()'
 
 def main():
 
