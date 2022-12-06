@@ -26,6 +26,3 @@ def getRoundScore(opponentChoice: chr, myChoice: chr):
 	finish by adding choice value
 	"""
 	return ((((((ord(myChoice) - ASCII_X_VALUE) + 1) - ((ord(opponentChoice) - ASCII_A_VALUE) + 1)) % NUM_VARIABLES) + 1) % NUM_OUTCOMES) * NUM_OUTCOMES + ((ord(myChoice) - ASCII_X_VALUE) + 1)
-
-if __name__ == '__main__':
-	getTotalScore()
