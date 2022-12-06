@@ -55,6 +55,7 @@ def main():
     dayDir = os.path.join(parentDir, '../d%s'%(day))
     inputFile = os.path.join(dayDir, 'd%si.txt'%(day))
     dayFile = os.path.join(dayDir, 'd%s.py'%(day))
+    testInputFile = os.path.join(dayDir, 'testinput.txt')
     template = DAY_TEMPLATE.replace('?', str(day))
 
     if (not os.path.exists(dayDir)):
@@ -67,6 +68,9 @@ def main():
     if (not os.path.exists(dayFile)):
         with open(dayFile, 'w') as p1:
             p1.write(template)
+
+    if (not os.path.exists(testInputFile)):
+        open(dayFile, 'w')
 
     return 0
 
