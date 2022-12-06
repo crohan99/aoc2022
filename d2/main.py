@@ -1,7 +1,7 @@
 """
 Carson Rohan
 AOC2022
-Name_of_puzzle
+Main
 """
 
 import os
@@ -16,7 +16,9 @@ def main():
 	with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), FILE_NAME), 'r') as input:
 		rounds = input.readlines()
 
-	print(d2p1.getTotalScore(rounds))
+	print(f'Day 1: {d2p1.getTotalScore(rounds)}')
+
+	print(f'Day 2: {d2p2.getTotalScore(rounds)}')
 
 	return 0
 
