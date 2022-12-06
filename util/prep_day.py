@@ -12,8 +12,8 @@ STATUS_OK = 200
 AOC_INPUT_URL = 'https://adventofcode.com/2022/day/?/input'
 URL = 'https://adventofcode.com/2022'
 COOKIES = {
-    'ru': '53616c7465645f5f2c67d612a845a9fcdc07298538ebd2682ed70370db6628b9339c2b44f0ac9f6ddda8c328c019e2a7',
-    'session': '53616c7465645f5f23018bfd020806f650900995c24f0b6c2c15daeb7a7a0a96b8e7cead4e49d6e459eb9484221147c65c40d03de7200eb481312e500ea999eb'
+    'ru': 'userstring',
+    'session': 'cookiestring'
 }
 
 INPUT_SIZE = 2
