@@ -17,16 +17,19 @@ def main():
 	with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), FILE_NAME), 'r') as input:
 		packs = input.readlines()
 
-	print(Part1().rifleThroughPacks(packs))
+	print(Part1().searchPacks(packs))
 
-	print(Part2().rifleThroughPacks(packs))
+	print(Part2().search3Packs(packs))
 
 	return 0
 
 
 class Part1:
-
-	def rifleThroughPacks(self, packs: list):
+	"""
+	Search for a char that appears in both halves of a list
+	Use binary search
+	"""
+	def searchPacks(self, packs: list):
 		score: int = 0
 
 		for pack in packs:
@@ -40,7 +43,7 @@ class Part1:
 
 			for item in firstHalf:
 
-				foundChar = self.findItem(item, secondHalf)
+				foundChar = self.getItem(item, secondHalf)
 
 				if (foundChar != ''):
 					
@@ -54,7 +57,7 @@ class Part1:
 
 		return score
 
-	def findItem(self, targetItem: chr, items: list):
+	def getItem(self, targetItem: chr, items: list):
 		# items should already be sorted for binary search
 		low: int = 0
 		high: int = len(items) - 1
@@ -79,8 +82,13 @@ class Part1:
 		return ord(char) % ASCII_LOWERCASE_A_DEC
 
 class Part2:
+	"""
+	This time, search through 3 lists for the same char
 
-	def rifleThroughPacks(self, packs: list):
+	Binary search keeps computation time down, but another trick here
+	is to remove duplicates so we aren't searching the same char over and over
+	"""
+	def search3Packs(self, packs: list):
 		score: int = 0
 
 		for i in range(0, len(packs), 3):
@@ -92,18 +100,18 @@ class Part2:
 
 			# remove duplicates and sort
 			packGroup = [*set(packGroup)]
-			packGroup.sort(key=self.sortRule)
+			packGroup.sort(key=Part1().sortRule)
 			pack1 = [*set(pack1)]
-			pack1.sort(key=self.sortRule)
+			pack1.sort(key=Part1().sortRule)
 			pack2 = [*set(pack2)]
-			pack2.sort(key=self.sortRule)
+			pack2.sort(key=Part1().sortRule)
 			pack3 = [*set(pack3)]
-			pack3.sort(key=self.sortRule)
+			pack3.sort(key=Part1().sortRule)
 
 			for item in packGroup:
-				result1 = self.findItem(item, pack1) 
-				result2 = self.findItem(item, pack2)
-				result3 = self.findItem(item, pack3)
+				result1 = Part1().getItem(item, pack1) 
+				result2 = Part1().getItem(item, pack2)
+				result3 = Part1().getItem(item, pack3)
 
 				if (result1 != '' and result2 != '' and result3 != ''):
 
@@ -116,31 +124,6 @@ class Part2:
 						break
 
 		return score
-
-	def findItem(self, targetItem: chr, items: list):
-		# items should already be sorted for binary search
-		low: int = 0
-		high: int = len(items) - 1
-		mid: int = 0
-		
-		# perform binary search
-		while (low <= high):
-			mid = (high + low) // 2
-
-			if (ord(items[mid]) % ASCII_LOWERCASE_A_DEC < ord(targetItem) % ASCII_LOWERCASE_A_DEC):
-				low = mid + 1
-
-			elif (ord(items[mid]) % ASCII_LOWERCASE_A_DEC > ord(targetItem) % ASCII_LOWERCASE_A_DEC):
-				high = mid - 1
-
-			else:
-				return items[mid]
-
-		return ''
-
-	def sortRule(self, char):
-		return ord(char) % ASCII_LOWERCASE_A_DEC
-
 
 if __name__ == '__main__':
 	main()
