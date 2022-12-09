@@ -15,7 +15,7 @@ def main():
 		fileInput = input.readlines()
 
 		print(Part1().moveCrates(fileInput))
-		# print(Part2().moveCrates(fileInput))
+		print(Part2().moveCrates(fileInput))
 
 		return 0
 
@@ -113,12 +113,10 @@ class Part2:
 		procedures: dict = self.getProcedures(input)
 
 		for proc in procedures.values():
-
 			# add end slice of size proc[0] to stack proc[2] from proc[1]
-			stacks[int(proc[2])].append(stacks[int(proc[1])][:(-1 * int(proc[0]))])
-
-			for i in range(int(proc[0])):
-				stacks[int(proc[1])].pop()
+			stacks[int(proc[2])].extend(stacks[int(proc[1])][(-1 * int(proc[0])):])
+			# remove that slice from the appropriate stack
+			stacks[int(proc[1])] = stacks[int(proc[1])][:(-1 * int(proc[0]))]
 
 		topCrates: list = []
 		for stack in stacks.values():
